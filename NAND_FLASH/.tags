@@ -1,0 +1,38 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+COMMD_READ_GO	.\nand.h	6;"	d
+COMMD_READ_START	.\nand.h	5;"	d
+COMMD_READ_STATUS	.\nand.h	9;"	d
+COMMD_RESET	.\nand.h	4;"	d
+COMMD_WRITE_PAGE_GO	.\nand.h	8;"	d
+COMMD_WRITE_PAGE_START	.\nand.h	7;"	d
+MEM_CTL_BASE	.\init.c	2;"	d	file:
+NFADDR	.\nand.h	/^    S3C24X0_REG32   NFADDR;$/;"	m	struct:__anon1
+NFCMD	.\nand.h	/^    S3C24X0_REG32   NFCMD;$/;"	m	struct:__anon1
+NFCONF	.\nand.h	/^    S3C24X0_REG32   NFCONF;$/;"	m	struct:__anon1
+NFCONT	.\nand.h	/^    S3C24X0_REG32   NFCONT;$/;"	m	struct:__anon1
+NFDATA	.\nand.h	/^    S3C24X0_REG32   NFDATA;$/;"	m	struct:__anon1
+NFEBLK	.\nand.h	/^    S3C24X0_REG32   NFEBLK;$/;"	m	struct:__anon1
+NFESTAT0	.\nand.h	/^    S3C24X0_REG32   NFESTAT0;$/;"	m	struct:__anon1
+NFESTAT1	.\nand.h	/^    S3C24X0_REG32   NFESTAT1;$/;"	m	struct:__anon1
+NFMECC0	.\nand.h	/^    S3C24X0_REG32   NFMECC0;$/;"	m	struct:__anon1
+NFMECC1	.\nand.h	/^    S3C24X0_REG32   NFMECC1;$/;"	m	struct:__anon1
+NFMECCD0	.\nand.h	/^    S3C24X0_REG32   NFMECCD0;$/;"	m	struct:__anon1
+NFMECCD1	.\nand.h	/^    S3C24X0_REG32   NFMECCD1;$/;"	m	struct:__anon1
+NFSBLK	.\nand.h	/^    S3C24X0_REG32   NFSBLK;$/;"	m	struct:__anon1
+NFSECC	.\nand.h	/^    S3C24X0_REG32   NFSECC;$/;"	m	struct:__anon1
+NFSECCD	.\nand.h	/^    S3C24X0_REG32   NFSECCD;$/;"	m	struct:__anon1
+NFSTAT	.\nand.h	/^    S3C24X0_REG32   NFSTAT;$/;"	m	struct:__anon1
+S3C2440_NAND	.\nand.h	/^} S3C2440_NAND;$/;"	t	typeref:struct:__anon1
+S3C24X0_REG32	.\nand.h	/^typedef unsigned int S3C24X0_REG32;$/;"	t
+WTCON	.\init.c	1;"	d	file:
+_NAND_H	.\nand.h	2;"	d
+_start	.\start.s	/^_start:$/;"	l
+disable_watch_dog	.\init.c	/^void disable_watch_dog(){$/;"	f
+halt_loop	.\start.s	/^halt_loop:$/;"	l
+nand_reset	.\nand.c	/^static void nand_reset(){$/;"	f	file:
+sdram_init	.\init.c	/^void sdram_init(){$/;"	f

@@ -1,0 +1,247 @@
+
+nand_elf:     file format elf32-littlearm
+
+
+Disassembly of section firtst:
+
+00000000 <_start>:
+   0:	e3a0da01 	mov	sp, #4096	; 0x1000
+   4:	eb000012 	bl	54 <disable_watch_dog>
+   8:	eb000044 	bl	120 <nand_init>
+   c:	eb000014 	bl	64 <sdram_init>
+  10:	e3a00203 	mov	r0, #805306368	; 0x30000000
+  14:	e3a01a01 	mov	r1, #4096	; 0x1000
+  18:	e3a02b02 	mov	r2, #2048	; 0x800
+  1c:	eb000055 	bl	178 <nand_read>
+  20:	e3a0d30d 	mov	sp, #872415232	; 0x34000000
+  24:	e59fe004 	ldr	lr, [pc, #4]	; 30 <halt_loop+0x4>
+  28:	e59ff004 	ldr	pc, [pc, #4]	; 34 <halt_loop+0x8>
+
+0000002c <halt_loop>:
+  2c:	eafffffe 	b	2c <halt_loop>
+  30:	0000002c 	.word	0x0000002c
+  34:	30000034 	.word	0x30000034
+  38:	00001941 	.word	0x00001941
+  3c:	61656100 	.word	0x61656100
+  40:	01006962 	.word	0x01006962
+  44:	0000000f 	.word	0x0000000f
+  48:	00543405 	.word	0x00543405
+  4c:	01080206 	.word	0x01080206
+  50:	00000109 	.word	0x00000109
+
+00000054 <disable_watch_dog>:
+  54:	e3a02000 	mov	r2, #0	; 0x0
+  58:	e3a03453 	mov	r3, #1392508928	; 0x53000000
+  5c:	e5832000 	str	r2, [r3]
+  60:	e12fff1e 	bx	lr
+
+00000064 <sdram_init>:
+  64:	e3a00312 	mov	r0, #1207959552	; 0x48000000
+  68:	e59fc020 	ldr	ip, [pc, #32]	; 90 <sdram_init+0x2c>
+  6c:	e2800034 	add	r0, r0, #52	; 0x34
+  70:	e3a01312 	mov	r1, #1207959552	; 0x48000000
+  74:	e08c3001 	add	r3, ip, r1
+  78:	e283332e 	add	r3, r3, #-1207959552	; 0xb8000000
+  7c:	e5932000 	ldr	r2, [r3]
+  80:	e4812004 	str	r2, [r1], #4
+  84:	e1510000 	cmp	r1, r0
+  88:	1afffff9 	bne	74 <sdram_init+0x10>
+  8c:	e12fff1e 	bx	lr
+  90:	00000094 	.word	0x00000094
+
+00000094 <mem_cfg_val.1252>:
+  94:	22011110 	.word	0x22011110
+  98:	00000700 	.word	0x00000700
+  9c:	00000700 	.word	0x00000700
+  a0:	00000700 	.word	0x00000700
+  a4:	00000700 	.word	0x00000700
+  a8:	00000700 	.word	0x00000700
+  ac:	00000700 	.word	0x00000700
+  b0:	00018005 	.word	0x00018005
+  b4:	00018005 	.word	0x00018005
+  b8:	008c07a3 	.word	0x008c07a3
+  bc:	000000b1 	.word	0x000000b1
+  c0:	00000030 	.word	0x00000030
+  c4:	00000030 	.word	0x00000030
+  c8:	43434700 	.word	0x43434700
+  cc:	5328203a 	.word	0x5328203a
+  d0:	6372756f 	.word	0x6372756f
+  d4:	20797265 	.word	0x20797265
+  d8:	202b2b47 	.word	0x202b2b47
+  dc:	6574694c 	.word	0x6574694c
+  e0:	30303220 	.word	0x30303220
+  e4:	2d317139 	.word	0x2d317139
+  e8:	29363731 	.word	0x29363731
+  ec:	332e3420 	.word	0x332e3420
+  f0:	4100332e 	.word	0x4100332e
+  f4:	00000029 	.word	0x00000029
+  f8:	62616561 	.word	0x62616561
+  fc:	1f010069 	.word	0x1f010069
+ 100:	05000000 	.word	0x05000000
+ 104:	06005434 	.word	0x06005434
+ 108:	09010802 	.word	0x09010802
+ 10c:	14041201 	.word	0x14041201
+ 110:	17011501 	.word	0x17011501
+ 114:	19011803 	.word	0x19011803
+ 118:	1e021a01 	.word	0x1e021a01
+ 11c:	00000002 	.word	0x00000002
+
+00000120 <nand_init>:
+ 120:	e52d4004 	push	{r4}		; (str r4, [sp, #-4]!)
+ 124:	e3a0444e 	mov	r4, #1308622848	; 0x4e000000
+ 128:	e2844004 	add	r4, r4, #4	; 0x4
+ 12c:	e5941000 	ldr	r1, [r4]
+ 130:	e3a0044e 	mov	r0, #1308622848	; 0x4e000000
+ 134:	e3a0c44e 	mov	ip, #1308622848	; 0x4e000000
+ 138:	e3a02c03 	mov	r2, #768	; 0x300
+ 13c:	e3c11002 	bic	r1, r1, #2	; 0x2
+ 140:	e2800008 	add	r0, r0, #8	; 0x8
+ 144:	e3e03000 	mvn	r3, #0	; 0x0
+ 148:	e58c2000 	str	r2, [ip]
+ 14c:	e5841000 	str	r1, [r4]
+ 150:	e5c03000 	strb	r3, [r0]
+ 154:	e28c2020 	add	r2, ip, #32	; 0x20
+ 158:	e5923000 	ldr	r3, [r2]
+ 15c:	e3130001 	tst	r3, #1	; 0x1
+ 160:	0afffffc 	beq	158 <nand_init+0x38>
+ 164:	e5943000 	ldr	r3, [r4]
+ 168:	e3833002 	orr	r3, r3, #2	; 0x2
+ 16c:	e5843000 	str	r3, [r4]
+ 170:	e8bd0010 	pop	{r4}
+ 174:	e12fff1e 	bx	lr
+
+00000178 <nand_read>:
+ 178:	e1a0c001 	mov	ip, r1
+ 17c:	e182300c 	orr	r3, r2, ip
+ 180:	e92d45f0 	push	{r4, r5, r6, r7, r8, sl, lr}
+ 184:	e1a05a83 	lsl	r5, r3, #21
+ 188:	e1a05aa5 	lsr	r5, r5, #21
+ 18c:	e3550000 	cmp	r5, #0	; 0x0
+ 190:	e1a01002 	mov	r1, r2
+ 194:	e1a04000 	mov	r4, r0
+ 198:	1a000012 	bne	1e8 <nand_read+0x70>
+ 19c:	e3a0644e 	mov	r6, #1308622848	; 0x4e000000
+ 1a0:	e2866004 	add	r6, r6, #4	; 0x4
+ 1a4:	e5962000 	ldr	r2, [r6]
+ 1a8:	e081300c 	add	r3, r1, ip
+ 1ac:	e15c0003 	cmp	ip, r3
+ 1b0:	e1a019ac 	lsr	r1, ip, #19
+ 1b4:	e1a035ac 	lsr	r3, ip, #11
+ 1b8:	e1a00dac 	lsr	r0, ip, #27
+ 1bc:	e3c22002 	bic	r2, r2, #2	; 0x2
+ 1c0:	e3a0c44e 	mov	ip, #1308622848	; 0x4e000000
+ 1c4:	e5862000 	str	r2, [r6]
+ 1c8:	e20370ff 	and	r7, r3, #255	; 0xff
+ 1cc:	e20180ff 	and	r8, r1, #255	; 0xff
+ 1d0:	e200a003 	and	sl, r0, #3	; 0x3
+ 1d4:	e28cc010 	add	ip, ip, #16	; 0x10
+ 1d8:	3a000004 	bcc	1f0 <nand_read+0x78>
+ 1dc:	e5963000 	ldr	r3, [r6]
+ 1e0:	e3833002 	orr	r3, r3, #2	; 0x2
+ 1e4:	e5863000 	str	r3, [r6]
+ 1e8:	e8bd45f0 	pop	{r4, r5, r6, r7, r8, sl, lr}
+ 1ec:	e12fff1e 	bx	lr
+ 1f0:	e3a0044e 	mov	r0, #1308622848	; 0x4e000000
+ 1f4:	e1a01000 	mov	r1, r0
+ 1f8:	e1a0e000 	mov	lr, r0
+ 1fc:	e281100c 	add	r1, r1, #12	; 0xc
+ 200:	e2800008 	add	r0, r0, #8	; 0x8
+ 204:	e28ee020 	add	lr, lr, #32	; 0x20
+ 208:	e3a06030 	mov	r6, #48	; 0x30
+ 20c:	e5c05000 	strb	r5, [r0]
+ 210:	e5c15000 	strb	r5, [r1]
+ 214:	e5c15000 	strb	r5, [r1]
+ 218:	e5c17000 	strb	r7, [r1]
+ 21c:	e5c18000 	strb	r8, [r1]
+ 220:	e5c1a000 	strb	sl, [r1]
+ 224:	e59e3000 	ldr	r3, [lr]
+ 228:	e3130001 	tst	r3, #1	; 0x1
+ 22c:	0afffffc 	beq	224 <nand_read+0xac>
+ 230:	e5c06000 	strb	r6, [r0]
+ 234:	e3a02000 	mov	r2, #0	; 0x0
+ 238:	e5dc3000 	ldrb	r3, [ip]
+ 23c:	e7c43002 	strb	r3, [r4, r2]
+ 240:	e2822001 	add	r2, r2, #1	; 0x1
+ 244:	e3520b02 	cmp	r2, #2048	; 0x800
+ 248:	1afffffa 	bne	238 <nand_read+0xc0>
+ 24c:	e2844b02 	add	r4, r4, #2048	; 0x800
+ 250:	eaffffed 	b	20c <nand_read+0x94>
+ 254:	43434700 	movtmi	r4, #14080	; 0x3700
+ 258:	5328203a 	.word	0x5328203a
+ 25c:	6372756f 	.word	0x6372756f
+ 260:	20797265 	.word	0x20797265
+ 264:	202b2b47 	.word	0x202b2b47
+ 268:	6574694c 	.word	0x6574694c
+ 26c:	30303220 	.word	0x30303220
+ 270:	2d317139 	.word	0x2d317139
+ 274:	29363731 	.word	0x29363731
+ 278:	332e3420 	.word	0x332e3420
+ 27c:	4100332e 	.word	0x4100332e
+ 280:	00000029 	.word	0x00000029
+ 284:	62616561 	.word	0x62616561
+ 288:	1f010069 	.word	0x1f010069
+ 28c:	05000000 	.word	0x05000000
+ 290:	06005434 	.word	0x06005434
+ 294:	09010802 	.word	0x09010802
+ 298:	14041201 	.word	0x14041201
+ 29c:	17011501 	.word	0x17011501
+ 2a0:	19011803 	.word	0x19011803
+ 2a4:	1e021a01 	.word	0x1e021a01
+ 2a8:	Address 0x000002a8 is out of bounds.
+
+
+Disassembly of section second:
+
+30000000 <wait>:
+30000000:	e24dd008 	sub	sp, sp, #8	; 0x8
+30000004:	e58d0004 	str	r0, [sp, #4]
+30000008:	e59d3004 	ldr	r3, [sp, #4]
+3000000c:	e3530000 	cmp	r3, #0	; 0x0
+30000010:	0a000005 	beq	3000002c <wait+0x2c>
+30000014:	e59d3004 	ldr	r3, [sp, #4]
+30000018:	e2433001 	sub	r3, r3, #1	; 0x1
+3000001c:	e58d3004 	str	r3, [sp, #4]
+30000020:	e59d2004 	ldr	r2, [sp, #4]
+30000024:	e3520000 	cmp	r2, #0	; 0x0
+30000028:	1afffff9 	bne	30000014 <wait+0x14>
+3000002c:	e28dd008 	add	sp, sp, #8	; 0x8
+30000030:	e12fff1e 	bx	lr
+
+30000034 <main>:
+30000034:	e3a02456 	mov	r2, #1442840576	; 0x56000000
+30000038:	e3a03b55 	mov	r3, #87040	; 0x15400
+3000003c:	e5823010 	str	r3, [r2, #16]
+30000040:	e3a01000 	mov	r1, #0	; 0x0
+30000044:	e3a03c75 	mov	r3, #29952	; 0x7500
+30000048:	e2833030 	add	r3, r3, #48	; 0x30
+3000004c:	e2533001 	subs	r3, r3, #1	; 0x1
+30000050:	1afffffd 	bne	3000004c <main+0x18>
+30000054:	e1e03281 	mvn	r3, r1, lsl #5
+30000058:	e351000f 	cmp	r1, #15	; 0xf
+3000005c:	e5823014 	str	r3, [r2, #20]
+30000060:	12811001 	addne	r1, r1, #1	; 0x1
+30000064:	03a01000 	moveq	r1, #0	; 0x0
+30000068:	eafffff5 	b	30000044 <main+0x10>
+3000006c:	43434700 	movtmi	r4, #14080	; 0x3700
+30000070:	5328203a 	.word	0x5328203a
+30000074:	6372756f 	.word	0x6372756f
+30000078:	20797265 	.word	0x20797265
+3000007c:	202b2b47 	.word	0x202b2b47
+30000080:	6574694c 	.word	0x6574694c
+30000084:	30303220 	.word	0x30303220
+30000088:	2d317139 	.word	0x2d317139
+3000008c:	29363731 	.word	0x29363731
+30000090:	332e3420 	.word	0x332e3420
+30000094:	4100332e 	.word	0x4100332e
+30000098:	00000029 	.word	0x00000029
+3000009c:	62616561 	.word	0x62616561
+300000a0:	1f010069 	.word	0x1f010069
+300000a4:	05000000 	.word	0x05000000
+300000a8:	06005434 	.word	0x06005434
+300000ac:	09010802 	.word	0x09010802
+300000b0:	14041201 	.word	0x14041201
+300000b4:	17011501 	.word	0x17011501
+300000b8:	19011803 	.word	0x19011803
+300000bc:	1e021a01 	.word	0x1e021a01
+300000c0:	Address 0x300000c0 is out of bounds.
+

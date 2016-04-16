@@ -1,0 +1,8 @@
+sdram_led.bin: start.s	main.c
+	arm-linux-gcc -c -nostdlib -o start.o start.s
+	arm-linux-gcc -c -nostdlib -o main.o main.c
+	arm-linux-ld -Ttext 0x30000000 start.o main.o -o sdram_led_elf
+	arm-linux-objcopy -O binary -S sdram_led_elf sdram_led.bin
+	arm-linux-objdump -D -m arm sdram_led_elf > sdram_led.dis
+clean:
+	rm -f *.o *.bin *.dis
